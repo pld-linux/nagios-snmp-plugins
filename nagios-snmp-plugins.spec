@@ -4,7 +4,7 @@ Name:		nagios-snmp-plugins
 Version:	1.0
 Release:	3
 License:	GPL
-Group: 		Applications/System
+Group:		Applications/System
 Source0:	ftp://ftp.hometree.net/pub/nagios-snmp-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	cf70e405718d016debe206d01f54262c
 URL:		ftp://ftp.hometree.net/pub/nagios-snmp-plugins/index.html
