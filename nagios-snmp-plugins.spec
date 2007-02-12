@@ -1,5 +1,5 @@
 Summary:	Plugins for Nagios to monitor remote disk and processes via SNMP
-Summary(pl):	Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesów po SNMP
+Summary(pl.UTF-8):   Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesÃ³w po SNMP
 Name:		nagios-snmp-plugins
 Version:	1.0
 Release:	4
@@ -24,9 +24,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 These plugins allow you to monitor disk space and running processes on
 a remote machine via SNMP.
 
-%description -l pl
-Te wtyczki pozwalaj± na zdalne monitorowanie zajêto¶ci dysku i
-dzia³ajacych procesów po SNMP.
+%description -l pl.UTF-8
+Te wtyczki pozwalajÄ… na zdalne monitorowanie zajÄ™toÅ›ci dysku i
+dziaÅ‚ajacych procesÃ³w po SNMP.
 
 %prep
 %setup -q
