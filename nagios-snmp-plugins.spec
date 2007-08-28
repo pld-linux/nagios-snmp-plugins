@@ -1,15 +1,14 @@
 Summary:	Plugins for Nagios to monitor remote disk and processes via SNMP
 Summary(pl.UTF-8):	Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesów po SNMP
 Name:		nagios-snmp-plugins
-Version:	1.0
-Release:	5
-License:	GPL
-Group:		Applications/System
-Source0:	ftp://ftp.hometree.net/pub/nagios-snmp-plugins/%{name}-%{version}.tar.gz
-# Source0-md5:	cf70e405718d016debe206d01f54262c
+Version:	1.1
+Release:	1
+License:	GPL v2
+Group:		Networking
+Source0:	http://www.softwareforge.de/releases/nagios-snmp-plugins/%{name}-%{version}.tar.gz
+# Source0-md5:	be44ea6b76cb17caba7729314118ab30
 Source1:	%{name}.cfg
-Patch0:		%{name}-format-report.patch
-URL:		ftp://ftp.hometree.net/pub/nagios-snmp-plugins/index.html
+URL:		http://henning.schmiedehausen.org/eyewiki/Wiki.jsp?page=NagiosSnmpPlugins
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	nagios-devel
@@ -32,7 +31,6 @@ działajacych procesów po SNMP.
 
 %prep
 %setup -q
-%patch0 -p1
 %{__sed} -e 's,@plugindir@,%{_plugindir},' %{SOURCE1} > %{name}.cfg
 
 %build
@@ -56,6 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS NEWS README
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.cfg
 %attr(755,root,root) %{_plugindir}/*
