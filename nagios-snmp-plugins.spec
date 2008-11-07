@@ -2,12 +2,13 @@ Summary:	Plugins for Nagios to monitor remote disk and processes via SNMP
 Summary(pl.UTF-8):	Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesów po SNMP
 Name:		nagios-snmp-plugins
 Version:	1.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Networking
 Source0:	http://www.softwareforge.de/releases/nagios-snmp-plugins/%{name}-%{version}.tar.gz
 # Source0-md5:	54f2b7ad0df22a9c9dcd8c64cb8ef955
 Source1:	%{name}.cfg
+Patch0:		%{name}-list-formatting.patch
 URL:		http://henning.schmiedehausen.org/eyewiki/Wiki.jsp?page=NagiosSnmpPlugins
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,6 +32,7 @@ działajacych procesów po SNMP.
 
 %prep
 %setup -q
+%patch0 -p1
 %{__sed} -e 's,@plugindir@,%{_plugindir},' %{SOURCE1} > %{name}.cfg
 
 %build
@@ -44,7 +46,6 @@ działajacych procesów po SNMP.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_plugindir}}
-
 cp -a %{name}.cfg $RPM_BUILD_ROOT%{_sysconfdir}/%{name}.cfg
 install check_snmp_disk $RPM_BUILD_ROOT%{_plugindir}
 install check_snmp_proc $RPM_BUILD_ROOT%{_plugindir}
