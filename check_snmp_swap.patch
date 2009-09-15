@@ -24,7 +24,7 @@
 +check_snmp_swap.o: check_snmp_swap.c snmp_common.h
 --- /dev/null	2006-03-28 14:00:37.000000000 +0300
 +++ nagios-snmp-plugins-1.2-swap/check_snmp_swap.c	2009-09-15 09:59:10.500931753 +0300
-@@ -0,0 +1,211 @@
+@@ -0,0 +1,205 @@
 +/*************************************************************************
 + *
 + * plugins for Nagios
@@ -133,12 +133,6 @@
 +      case 'v':
 +        verbose = 1;
 +        printf("%s: Verbose mode activated\n", bn);
-+        break;
-+
-+      case 'l':
-+        listing = 1;
-+		if(verbose)
-+        	printf("%s: List mode activated\n", bn);
 +        break;
 +    }
 +  }
