@@ -24,7 +24,7 @@
 +check_snmp_swap.o: check_snmp_swap.c snmp_common.h
 --- /dev/null	2006-03-28 14:00:37.000000000 +0300
 +++ nagios-snmp-plugins-1.2-swap/check_snmp_swap.c	2009-09-15 09:59:10.500931753 +0300
-@@ -0,0 +1,205 @@
+@@ -0,0 +1,204 @@
 +/*************************************************************************
 + *
 + * plugins for Nagios
@@ -68,7 +68,6 @@
 +    { "community", required_argument, 0, 'C' },
 +    { "hostname",  required_argument, 0, 'H' },
 +    { "verbose",   no_argument,       0, 'v' },
-+    { "list",      no_argument,       0, 'l' },
 +    { 0, 0, 0, 0 },
 +  };
 +  int option_index = 0;
@@ -79,7 +78,7 @@
 +  bn = strdup(basename(argv[0]));
 +  version = VERSION;
 +
-+#define OPTS "?hVvlt:c:w:C:H:"
++#define OPTS "?hVvt:c:w:C:H:"
 +  
 +  while(1)
 +  {
