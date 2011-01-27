@@ -2,12 +2,11 @@ Summary:	Plugins for Nagios to monitor remote disk and processes via SNMP
 Summary(pl.UTF-8):	Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesów po SNMP
 Name:		nagios-snmp-plugins
 Version:	1.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Networking
-#Source0:	http://github.com/glensc/nagios-snmp-plugins/tarball/master#/%{name}-%{version}.tgz
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	6d9d8c2ea166f0a22bb2502da28ab3ca
+Source0:	https://github.com/glensc/nagios-snmp-plugins/tarball/%{version}#/%{name}-%{version}.tgz
+# Source0-md5:	c55730ba5fa379f02d2788f8d7f3b352
 Source1:	%{name}.cfg
 URL:		http://github.com/glensc/nagios-snmp-plugins
 BuildRequires:	autoconf
@@ -33,7 +32,8 @@ Te wtyczki pozwalają na zdalne monitorowanie zajętości dysku i
 działajacych procesów po SNMP.
 
 %prep
-%setup -q
+%setup -qc
+mv *-nagios-snmp-plugins-*/* .
 
 %build
 %{__aclocal}
