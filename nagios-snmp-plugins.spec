@@ -1,16 +1,14 @@
 Summary:	Plugins for Nagios to monitor remote disk and processes via SNMP
 Summary(pl.UTF-8):	Wtyczki dla Nagiosa do zdalnego monitorowania dysku i procesów po SNMP
 Name:		nagios-snmp-plugins
-Version:	1.3
-Release:	4
+Version:	1.3.1
+Release:	1
 License:	GPL v2
 Group:		Networking
-Source0:	https://github.com/glensc/nagios-snmp-plugins/tarball/%{version}#/%{name}-%{version}.tgz
-# Source0-md5:	c55730ba5fa379f02d2788f8d7f3b352
+Source0:	https://github.com/glensc/nagios-snmp-plugins/releases/download/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	c47444d4224dfa225169213b2f4acc1c
 Source1:	%{name}.cfg
 URL:		http://github.com/glensc/nagios-snmp-plugins
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	net-snmp-devel >= 5.2.1.2
 Requires:	nagios-core
 Requires:	net-snmp-libs
@@ -32,14 +30,9 @@ Te wtyczki pozwalają na zdalne monitorowanie zajętości dysku i
 działajacych procesów po SNMP.
 
 %prep
-%setup -qc
-mv *-nagios-snmp-plugins-*/* .
+%setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
 	--bindir=%{plugindir}
 %{__make}
@@ -58,4 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.cfg
-%attr(755,root,root) %{plugindir}/*
+%attr(755,root,root) %{plugindir}/check_snmp_disk
+%attr(755,root,root) %{plugindir}/check_snmp_load
+%attr(755,root,root) %{plugindir}/check_snmp_proc
+%attr(755,root,root) %{plugindir}/check_snmp_swap
